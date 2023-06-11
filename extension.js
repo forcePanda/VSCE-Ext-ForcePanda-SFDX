@@ -1,36 +1,62 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 const vscode = require('vscode');
+const { spawn } = require('child_process');
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
+// Import the command modules
+const { executeCreatePackageWithoutNamespace } = require('./commands/createPackageWithoutNamespace');
+const { executeCreatePackageWithNamespace } = require('./commands/createPackageWithNamespace');
+const { executeCreatePackageVersion } = require('./commands/createPackageVersion');
+const { executeReleasePackageVersion } = require('./commands/releasePackageVersion');
+const { executeDeletePackageVersion } = require('./commands/executeDeletePackageVersion');
+
+
+const { 
+	createPackageWithoutNamespace, 
+	createPackageWithNamespace, 
+	createPackageVersion, 
+	releasePackageVersion, 
+	deletePackageVersion, 
+	deletePackage, 
+	getAllPackages, 
+	getAllPackageVersions, 
+	checkPackageVersionStatus, 
+	getDeploymentStatus, 
+	retrieveChangeSet, 
+	pushToChangeSet, 
+	retrieveMetadata, 
+	convertSourceToMDAPI, 
+	openDeveloperConsole 
+} = require('./commands');
 
 /**
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "ForcePanda-SFDX" is now active!');
-
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with  registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('ForcePanda-SFDX.helloWorld', function () {
-		// The code you place here will be executed every time your command is executed
-
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from ForcePanda SFDX!');
-	});
-
-	context.subscriptions.push(disposable);
+	context.subscriptions.push(
+		vscode.commands.registerCommand('extension.createPackageWithoutNamespace', createPackageWithoutNamespace),
+        vscode.commands.registerCommand('extension.createPackageWithNamespace', createPackageWithNamespace),
+        vscode.commands.registerCommand('extension.createPackageVersion', createPackageVersion),
+        vscode.commands.registerCommand('extension.releasePackageVersion', releasePackageVersion),
+        vscode.commands.registerCommand('extension.deletePackageVersion', deletePackageVersion),
+        vscode.commands.registerCommand('extension.deletePackage', deletePackage),
+        vscode.commands.registerCommand('extension.getAllPackages', getAllPackages),
+        vscode.commands.registerCommand('extension.getAllPackageVersions', getAllPackageVersions),
+        vscode.commands.registerCommand('extension.checkPackageVersionStatus', checkPackageVersionStatus),
+        vscode.commands.registerCommand('extension.getDeploymentStatus', getDeploymentStatus),
+        vscode.commands.registerCommand('extension.retrieveChangeSet', retrieveChangeSet),
+        vscode.commands.registerCommand('extension.pushToChangeSet', pushToChangeSet),
+        vscode.commands.registerCommand('extension.retrieveMetadata', retrieveMetadata),
+        vscode.commands.registerCommand('extension.convertSourceToMDAPI', convertSourceToMDAPI),
+        vscode.commands.registerCommand('extension.openDeveloperConsole', openDeveloperConsole)
+    );
 }
+
+exports.activate = activate;
 
 // This method is called when your extension is deactivated
-function deactivate() {}
+function deactivate() { }
 
 module.exports = {
-	activate,
-	deactivate
-}
+    activate,
+    deactivate
+};

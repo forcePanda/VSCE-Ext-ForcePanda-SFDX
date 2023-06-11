@@ -9,13 +9,87 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onCommand:extension.createPackageWithoutNamespace",
+    "onCommand:extension.createPackageWithNamespace",
+    "onCommand:extension.createPackageVersion",
+    "onCommand:extension.releasePackageVersion",
+    "onCommand:extension.deletePackageVersion",
+    "onCommand:extension.deletePackage",
+    "onCommand:extension.getAllPackages",
+    "onCommand:extension.getAllPackageVersions",
+    "onCommand:extension.checkPackageVersionStatus",
+    "onCommand:extension.getDeploymentStatus",
+    "onCommand:extension.retrieveChangeSet",
+    "onCommand:extension.pushToChangeSet",
+    "onCommand:extension.retrieveMetadata",
+    "onCommand:extension.convertSourceToMDAPI",
+    "onCommand:extension.openDeveloperConsole"
+  ],
   "main": "./extension.js",
   "contributes": {
-    "commands": [{
-      "command": "ForcePanda-SFDX.helloWorld",
-      "title": "Hello World"
-    }]
+    "commands": [
+      {
+        "command": "extension.createPackageWithoutNamespace",
+        "title": "Create Package without Namespace"
+      },
+      {
+        "command": "extension.createPackageWithNamespace",
+        "title": "Create Package with Namespace"
+      },
+      {
+        "command": "extension.createPackageVersion",
+        "title": "Create Package Version"
+      },
+      {
+        "command": "extension.releasePackageVersion",
+        "title": "Release Package Version"
+      },
+      {
+        "command": "extension.deletePackageVersion",
+        "title": "Delete Package Version"
+      },
+      {
+        "command": "extension.deletePackage",
+        "title": "Delete Package"
+      },
+      {
+        "command": "extension.getAllPackages",
+        "title": "Get all Packages"
+      },
+      {
+        "command": "extension.getAllPackageVersions",
+        "title": "Get all Package Versions"
+      },
+      {
+        "command": "extension.checkPackageVersionStatus",
+        "title": "Check Package Version Status"
+      },
+      {
+        "command": "extension.getDeploymentStatus",
+        "title": "Get Deployment Status"
+      },
+      {
+        "command": "extension.retrieveChangeSet",
+        "title": "Retrieve Change Set"
+      },
+      {
+        "command": "extension.pushToChangeSet",
+        "title": "Push to Change Set"
+      },
+      {
+        "command": "extension.retrieveMetadata",
+        "title": "Retrieve Metadata"
+      },
+      {
+        "command": "extension.convertSourceToMDAPI",
+        "title": "Convert Source to MDAPI"
+      },
+      {
+        "command": "extension.openDeveloperConsole",
+        "title": "Open Developer Console"
+      }
+    ]
   },
   "scripts": {
     "lint": "eslint .",
