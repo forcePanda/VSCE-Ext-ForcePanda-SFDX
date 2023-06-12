@@ -1,7 +1,7 @@
 const vscode = require('vscode');
 const util = require('../util');
 
-async function executeCreatePackageVersion() {
+async function executeGetAllPackageVersions() {
 
     const packageId = await vscode.window.showInputBox({
         prompt: 'Enter Package ID',
@@ -9,18 +9,15 @@ async function executeCreatePackageVersion() {
     });
 
     if(!packageId) {
-        return
+        return;
     }
 
-    const command = `sfdx force:package:version:create` +
-        ` --package "${packageId}"` +
-        ` --wait 20` +
-        ` --installationkeybypass` +
-        ` --codecoverage`;
+    const command = `sfdx force:package:version:list` +
+        ` --packages "${packageId}"`;
 
     util.executeInTerminal(command);
 }
 
 module.exports = {
-    executeCreatePackageVersion
+    executeGetAllPackageVersions
 };

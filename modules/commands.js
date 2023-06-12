@@ -1,28 +1,37 @@
 // commands.js
 const vscode = require('vscode');
-const { executeDeletePackageVersion } = require('./commands/deletePackageVersion.js');
-const { executeOpenDeveloperConsole } = require('./commands/openDeveloperConsole.js');
+const { executeCreatePackageWithoutNamespace } = require('./commands/createPackageWithoutNamespace.js');
+const { executeCreatePackageWithNamespace } = require('./commands/createPackageWithNamespace.js');
+const { executeCreatePackageVersion } = require('./commands/createPackageVersion.js');
+const { executeReleasePackageVersion } = require('./commands/releasePackageVersion.js');
+const { executeDeletePackage } = require('./commands/deletePackage.js');
+const { executeGetAllPackages } = require('./commands/getAllPackages.js');
+const { executeGetAllPackageVersions } = require('./commands/getAllPackageVersions.js');
+const { executeCheckPackageVersionStatus } = require('./commands/checkPackageVersionStatus.js');
+
+// const { executeDeletePackageVersion } = require('./commands/deletePackageVersion.js');
+// const { executeOpenDeveloperConsole } = require('./commands/openDeveloperConsole.js');
+
+
 
 // Create Package without Namespace
 function createPackageWithoutNamespace() {
+    executeCreatePackageWithoutNamespace();
 }
 
 // Create Package with Namespace
 function createPackageWithNamespace() {
-    vscode.window.showInformationMessage('Create Package with Namespace command executed');
-    // Implement your logic here
+    executeCreatePackageWithNamespace();
 }
 
 // Create Package Version
 function createPackageVersion() {
-    vscode.window.showInformationMessage('Create Package Version command executed');
-    // Implement your logic here
+    executeCreatePackageVersion();
 }
 
 // Release Package Version
 function releasePackageVersion() {
-    vscode.window.showInformationMessage('Release Package Version command executed');
-    // Implement your logic here
+    executeReleasePackageVersion();
 }
 
 // Delete Package Version
@@ -32,61 +41,46 @@ function deletePackageVersion() {
 
 // Delete Package
 function deletePackage() {
-    vscode.window.showInformationMessage('Delete Package command executed');
-    // Implement your logic here
+    executeDeletePackage();
 }
 
 // Get all Packages
 function getAllPackages() {
-    vscode.window.showInformationMessage('Get all Packages command executed');
-    // Implement your logic here
+    executeGetAllPackages();
 }
 
 // Get all Package Versions
 function getAllPackageVersions() {
-    vscode.window.showInformationMessage('Get all Package Versions command executed');
-    // Implement your logic here
+    executeGetAllPackageVersions();
 }
 
 // Check Package Version Status
 function checkPackageVersionStatus() {
-    vscode.window.showInformationMessage('Check Package Version Status command executed');
-    // Implement your logic here
+    executeCheckPackageVersionStatus();
 }
 
 // Get Deployment Status
-function getDeploymentStatus() {
-    vscode.window.showInformationMessage('Get Deployment Status command executed');
-    // Implement your logic here
-}
+function getDeploymentStatus() {}
 
 // Retrieve Change Set
-function retrieveChangeSet() {
-    vscode.window.showInformationMessage('Retrieve Change Set command executed');
-    // Implement your logic here
-}
+function retrieveChangeSet() {}
 
 // Push to Change Set
-function pushToChangeSet() {
-    vscode.window.showInformationMessage('Push to Change Set command executed');
-    // Implement your logic here
-}
+function pushToPackage() {}
 
 // Retrieve Metadata
-function retrieveMetadata() {
-    vscode.window.showInformationMessage('Retrieve Metadata command executed');
-    // Implement your logic here
-}
+function retrieveMetadata() {}
 
 // Convert Source to MDAPI
-function convertSourceToMDAPI() {
-    vscode.window.showInformationMessage('Convert Source to MDAPI command executed');
-    // Implement your logic here
-}
+function convertSourceToMDAPI() {}
 
 // Open Developer Console
 function openDeveloperConsole() {
     executeOpenDeveloperConsole();
+}
+
+function pushToChangeSet() {
+    executePushToChangeSet();
 }
 
 module.exports = {
