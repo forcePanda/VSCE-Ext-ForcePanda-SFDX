@@ -85,8 +85,7 @@ function convertSourceToMDAPI() {
 
 // Open Developer Console
 function openDeveloperConsole() {
-    vscode.window.showInformationMessage('Open Developer Console command executed');
-    // Implement your logic here
+    executeOpenDeveloperConsole();
 }
 
 module.exports = {

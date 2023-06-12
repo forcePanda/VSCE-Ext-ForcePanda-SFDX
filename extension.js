@@ -25,7 +25,7 @@ const {
 	retrieveMetadata, 
 	convertSourceToMDAPI, 
 	openDeveloperConsole 
-} = require('./modules');
+} = require('./commands.js');
 
 /**
  * @param {vscode.ExtensionContext} context
@@ -33,20 +33,20 @@ const {
 function activate(context) {
 
 	context.subscriptions.push(
-		vscode.commands.registerCommand('extension.createPackageWithoutNamespace', createPackageWithoutNamespace),
-        vscode.commands.registerCommand('extension.createPackageWithNamespace', createPackageWithNamespace),
-        vscode.commands.registerCommand('extension.createPackageVersion', createPackageVersion),
-        vscode.commands.registerCommand('extension.releasePackageVersion', releasePackageVersion),
-        vscode.commands.registerCommand('extension.deletePackageVersion', deletePackageVersion),
-        vscode.commands.registerCommand('extension.deletePackage', deletePackage),
-        vscode.commands.registerCommand('extension.getAllPackages', getAllPackages),
-        vscode.commands.registerCommand('extension.getAllPackageVersions', getAllPackageVersions),
-        vscode.commands.registerCommand('extension.checkPackageVersionStatus', checkPackageVersionStatus),
-        vscode.commands.registerCommand('extension.getDeploymentStatus', getDeploymentStatus),
-        vscode.commands.registerCommand('extension.retrieveChangeSet', retrieveChangeSet),
-        vscode.commands.registerCommand('extension.pushToChangeSet', pushToChangeSet),
-        vscode.commands.registerCommand('extension.retrieveMetadata', retrieveMetadata),
-        vscode.commands.registerCommand('extension.convertSourceToMDAPI', convertSourceToMDAPI),
+		// vscode.commands.registerCommand('extension.createPackageWithoutNamespace', createPackageWithoutNamespace),
+        // vscode.commands.registerCommand('extension.createPackageWithNamespace', createPackageWithNamespace),
+        // vscode.commands.registerCommand('extension.createPackageVersion', createPackageVersion),
+        // vscode.commands.registerCommand('extension.releasePackageVersion', releasePackageVersion),
+        // vscode.commands.registerCommand('extension.deletePackageVersion', deletePackageVersion),
+        // vscode.commands.registerCommand('extension.deletePackage', deletePackage),
+        // vscode.commands.registerCommand('extension.getAllPackages', getAllPackages),
+        // vscode.commands.registerCommand('extension.getAllPackageVersions', getAllPackageVersions),
+        // vscode.commands.registerCommand('extension.checkPackageVersionStatus', checkPackageVersionStatus),
+        // vscode.commands.registerCommand('extension.getDeploymentStatus', getDeploymentStatus),
+        // vscode.commands.registerCommand('extension.retrieveChangeSet', retrieveChangeSet),
+        // vscode.commands.registerCommand('extension.pushToChangeSet', pushToChangeSet),
+        // vscode.commands.registerCommand('extension.retrieveMetadata', retrieveMetadata),
+        // vscode.commands.registerCommand('extension.convertSourceToMDAPI', convertSourceToMDAPI),
         vscode.commands.registerCommand('extension.openDeveloperConsole', openDeveloperConsole)
     );
 }
