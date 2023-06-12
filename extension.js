@@ -2,11 +2,11 @@ const vscode = require('vscode');
 const { spawn } = require('child_process');
 
 // Import the command modules
-const { executeCreatePackageWithoutNamespace } = require('./commands/createPackageWithoutNamespace');
-const { executeCreatePackageWithNamespace } = require('./commands/createPackageWithNamespace');
-const { executeCreatePackageVersion } = require('./commands/createPackageVersion');
-const { executeReleasePackageVersion } = require('./commands/releasePackageVersion');
-const { executeDeletePackageVersion } = require('./commands/executeDeletePackageVersion');
+// const { executeCreatePackageWithoutNamespace } = require('./modules/createPackageWithoutNamespace');
+// const { executeCreatePackageWithNamespace } = require('./modules/createPackageWithNamespace');
+// const { executeCreatePackageVersion } = require('./modules/createPackageVersion');
+// const { executeReleasePackageVersion } = require('./modules/releasePackageVersion');
+// const { executeDeletePackageVersion } = require('./modules/executeDeletePackageVersion');
 
 
 const { 
@@ -25,7 +25,7 @@ const {
 	retrieveMetadata, 
 	convertSourceToMDAPI, 
 	openDeveloperConsole 
-} = require('./commands');
+} = require('./modules');
 
 /**
  * @param {vscode.ExtensionContext} context
