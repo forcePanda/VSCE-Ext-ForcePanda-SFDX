@@ -25,13 +25,12 @@ const {
 	retrieveMetadata, 
 	convertSourceToMDAPI, 
 	openDeveloperConsole 
-} = require('./commands.js');
+} = require('./modules/commands.js');
 
 /**
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
-
 	context.subscriptions.push(
 		// vscode.commands.registerCommand('extension.createPackageWithoutNamespace', createPackageWithoutNamespace),
         // vscode.commands.registerCommand('extension.createPackageWithNamespace', createPackageWithNamespace),

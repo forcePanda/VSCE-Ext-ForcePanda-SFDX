@@ -1,6 +1,7 @@
 // commands.js
 const vscode = require('vscode');
-const { executeDeletePackageVersion } = require('./deletePackageVersion.js');
+const { executeDeletePackageVersion } = require('./commands/deletePackageVersion.js');
+const { executeOpenDeveloperConsole } = require('./commands/openDeveloperConsole.js');
 
 // Create Package without Namespace
 function createPackageWithoutNamespace() {

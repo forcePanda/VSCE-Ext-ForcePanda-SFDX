@@ -18,4 +18,4 @@ function executeDeletePackageVersion() {
     });
 }
 
-module.exports = deletePackageVersion;
+module.exports = executeDeletePackageVersion;
