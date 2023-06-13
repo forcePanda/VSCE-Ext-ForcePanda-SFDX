@@ -42,6 +42,8 @@ function activate(context) {
         registerCommandWithErrorHandler('extension.openDeveloperConsole', openDeveloperConsole),
         registerCommandWithErrorHandler('extension.goToPage', goToPage)
     );
+
+    console.log('ForcePanda-SFDX extension activated');
 }
 
 exports.activate = activate;
