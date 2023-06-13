@@ -1,7 +1,11 @@
 const vscode = require('vscode');
 const fs = require('fs');
 const path = require('path');
-const { TERMINAL_NAME } = require('../util');
+const { executeInTerminal } = require('../util');
+
+const YES = 'Yes';
+const NO = 'No';
+const DEPLOYMENT_WAIT_TIME = 20;
 
 async function executePushToChangeSet() {
     const changeSetName = await requestChangeSetName();
@@ -64,16 +68,32 @@ function updatePackageXml(changeSetFolder, changeSetName) {
 
 async function runForceMdapiDeploy(defaultFolderPath) {
     const deployCommand = `sfdx force:mdapi:deploy` +
-        ` -d "${defaultFolderPath}"`; //+
-        //` -u YourOrgAlias`;
+        ` --deploydir "${defaultFolderPath}"` +
+        ` --wait ${DEPLOYMENT_WAIT_TIME}`;
     await executeCommand(deployCommand);
 }
 
 async function executeCommand(command) {
-    const terminal = vscode.window.createTerminal(TERMINAL_NAME);
-    terminal.show();
-    terminal.sendText(command);
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    executeInTerminal(command);
+    
+    const result = await showCommandRunStatusModal();
+
+    if(result === YES) {
+        return Promise.resolve();
+    } else {
+        return Promise.reject(
+            new Error('Exiting process as command did not run successfully.')
+        );
+    }
+}
+
+function showCommandRunStatusModal() {
+    return vscode.window.showInformationMessage(
+        'Did the command run successfully?',
+        { modal: true },
+        YES,
+        NO
+    );
 }
 
 module.exports = {

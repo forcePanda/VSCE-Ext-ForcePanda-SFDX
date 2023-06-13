@@ -1,10 +1,9 @@
 const util = require('../util');
-
-const DEV_CONSOLE_PATH = '"/_ui/common/apex/debug/ApexCSIPage"';
+const { urlMap } = require('../urls/lex/urls_lex');
 
 function executeOpenDeveloperConsole() {
     util.executeInTerminal(
-        'sfdx force:org:open -p ' + DEV_CONSOLE_PATH
+        'sfdx force:org:open -p ' + urlMap.DEV_CONSOLE
     );
 }
 
