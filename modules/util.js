@@ -1,8 +1,9 @@
 const vscode = require('vscode');
-const TERMINAL = 'FP-SFDX Terminal';
+const TERMINAL_NAME = 'FP-SFDX Terminal';
+
+const terminal = getTerminal();
 
 function executeInTerminal(command) {
-    const terminal = getTerminal();
     terminal.sendText(command);
     terminal.show();
 }
@@ -22,13 +23,20 @@ function handleError(err) {
 }
 
 function getTerminal() {
-    return vscode.window.activeTerminal
-        ? vscode.window.activeTerminal
-        : vscode.window.createTerminal(TERMINAL)
+    const fpSfdxTerminal = vscode.window.terminals.find( terminal => terminal.name === TERMINAL_NAME);
+    return fpSfdxTerminal
+        ? fpSfdxTerminal
+        : vscode.window.createTerminal(TERMINAL_NAME)
+}
+
+vscode.window.onDidChangeTerminalState = (state) => handleTerminalStateChange(state);
+
+function handleTerminalStateChange(state) {
+    vscode.window.showInformationMessage('State changed: ' + JSON.stringify(state));
 }
 
 module.exports = {
     executeInTerminal,
-    TERMINAL,
+    TERMINAL_NAME,
     registerCommandWithErrorHandler
 };

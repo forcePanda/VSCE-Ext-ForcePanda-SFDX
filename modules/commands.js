@@ -1,5 +1,5 @@
 // commands.js
-const vscode = require('vscode');
+//const vscode = require('vscode');
 const { executeCreatePackageWithoutNamespace } = require('./commands/createPackageWithoutNamespace.js');
 const { executeCreatePackageWithNamespace } = require('./commands/createPackageWithNamespace.js');
 const { executeCreatePackageVersion } = require('./commands/createPackageVersion.js');

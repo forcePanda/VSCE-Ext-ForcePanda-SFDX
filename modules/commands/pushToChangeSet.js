@@ -5,6 +5,11 @@ const { TERMINAL } = require('../util');
 
 async function executePushToChangeSet() {
     const changeSetName = await requestChangeSetName();
+
+    if(!changeSetName) {
+        return;
+    }
+
     const changeSetFolder = createChangeSetFolder(changeSetName);
     const defaultFolderPath = createFolders(changeSetFolder);
     await runForceSourceConvert(defaultFolderPath);
@@ -44,6 +49,11 @@ async function runForceSourceConvert(defaultFolderPath) {
 function updatePackageXml(changeSetFolder, changeSetName) {
     const defaultFolder = path.join(changeSetFolder, 'main', 'default');
     const packageXmlPath = path.join(defaultFolder, 'package.xml');
+
+    if (!fs.existsSync(packageXmlPath)) {
+        throw new Error('package.xml file not found.');
+    }
+
     const packageXmlContent = fs.readFileSync(packageXmlPath, 'utf8');
     const updatedPackageXmlContent = packageXmlContent.replace(
         '</Package>',
