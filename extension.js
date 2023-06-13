@@ -1,4 +1,5 @@
 const vscode = require('vscode');
+const { registerCommandWithErrorHandler } = require('./modules/util');
 
 const { 
 	createPackageWithoutNamespace, 
@@ -23,21 +24,21 @@ const {
  */
 function activate(context) {
 	context.subscriptions.push(
-		vscode.commands.registerCommand('extension.createPackageWithoutNamespace', createPackageWithoutNamespace),
-        vscode.commands.registerCommand('extension.createPackageWithNamespace', createPackageWithNamespace),
-        vscode.commands.registerCommand('extension.createPackageVersion', createPackageVersion),
-        vscode.commands.registerCommand('extension.releasePackageVersion', releasePackageVersion),
-        vscode.commands.registerCommand('extension.deletePackageVersion', deletePackageVersion),
-        vscode.commands.registerCommand('extension.deletePackage', deletePackage),
-        vscode.commands.registerCommand('extension.getAllPackages', getAllPackages),
-        vscode.commands.registerCommand('extension.getAllPackageVersions', getAllPackageVersions),
-        vscode.commands.registerCommand('extension.checkPackageVersionStatus', checkPackageVersionStatus),
-        vscode.commands.registerCommand('extension.getDeploymentStatus', getDeploymentStatus),
-        vscode.commands.registerCommand('extension.retrieveChangeSet', retrieveChangeSet),
-        vscode.commands.registerCommand('extension.pushToChangeSet', pushToChangeSet),
-        vscode.commands.registerCommand('extension.retrieveMetadata', retrieveMetadata),
-        vscode.commands.registerCommand('extension.convertSourceToMDAPI', convertSourceToMDAPI),
-        vscode.commands.registerCommand('extension.openDeveloperConsole', openDeveloperConsole)
+		registerCommandWithErrorHandler('extension.createPackageWithoutNamespace', createPackageWithoutNamespace),
+        registerCommandWithErrorHandler('extension.createPackageWithNamespace', createPackageWithNamespace),
+        registerCommandWithErrorHandler('extension.createPackageVersion', createPackageVersion),
+        registerCommandWithErrorHandler('extension.releasePackageVersion', releasePackageVersion),
+        registerCommandWithErrorHandler('extension.deletePackageVersion', deletePackageVersion),
+        registerCommandWithErrorHandler('extension.deletePackage', deletePackage),
+        registerCommandWithErrorHandler('extension.getAllPackages', getAllPackages),
+        registerCommandWithErrorHandler('extension.getAllPackageVersions', getAllPackageVersions),
+        registerCommandWithErrorHandler('extension.checkPackageVersionStatus', checkPackageVersionStatus),
+        registerCommandWithErrorHandler('extension.getDeploymentStatus', getDeploymentStatus),
+        registerCommandWithErrorHandler('extension.retrieveChangeSet', retrieveChangeSet),
+        registerCommandWithErrorHandler('extension.pushToChangeSet', pushToChangeSet),
+        registerCommandWithErrorHandler('extension.retrieveMetadata', retrieveMetadata),
+        registerCommandWithErrorHandler('extension.convertSourceToMDAPI', convertSourceToMDAPI),
+        registerCommandWithErrorHandler('extension.openDeveloperConsole', openDeveloperConsole)
     );
 }
 

@@ -8,11 +8,9 @@ const { executeDeletePackage } = require('./commands/deletePackage.js');
 const { executeGetAllPackages } = require('./commands/getAllPackages.js');
 const { executeGetAllPackageVersions } = require('./commands/getAllPackageVersions.js');
 const { executeCheckPackageVersionStatus } = require('./commands/checkPackageVersionStatus.js');
-
-// const { executeDeletePackageVersion } = require('./commands/deletePackageVersion.js');
-// const { executeOpenDeveloperConsole } = require('./commands/openDeveloperConsole.js');
-
-
+const { executePushToChangeSet } = require('./commands/pushToChangeSet.js');
+const { executeDeletePackageVersion } = require('./commands/deletePackageVersion.js');
+const { executeOpenDeveloperConsole } = require('./commands/openDeveloperConsole.js');
 
 // Create Package without Namespace
 function createPackageWithoutNamespace() {
