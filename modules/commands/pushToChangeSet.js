@@ -10,14 +10,13 @@ const DEPLOYMENT_WAIT_TIME = 20;
 async function executePushToChangeSet() {
     const changeSetName = await requestChangeSetName();
 
-    if(!changeSetName) {
+    if (!changeSetName) {
         return;
     }
 
-    const changeSetFolder = createChangeSetFolder(changeSetName);
-    const defaultFolderPath = createFolders(changeSetFolder);
+    const defaultFolderPath = createChangeSetFolder(changeSetName);
     await runForceSourceConvert(defaultFolderPath);
-    updatePackageXml(changeSetFolder, changeSetName);
+    updatePackageXml(defaultFolderPath, changeSetName);
     await runForceMdapiDeploy(defaultFolderPath);
 }
 
@@ -31,15 +30,20 @@ async function requestChangeSetName() {
 function createChangeSetFolder(changeSetName) {
     const rootPath = vscode.workspace.rootPath;
     const changeSetFolder = path.join(rootPath, changeSetName);
-    fs.mkdirSync(changeSetFolder);
-    return changeSetFolder;
-}
-
-function createFolders(changeSetFolder) {
     const mainFolder = path.join(changeSetFolder, 'main');
     const defaultFolder = path.join(mainFolder, 'default');
-    fs.mkdirSync(mainFolder);
+
+    if (fs.existsSync(changeSetFolder)) {
+        // If the change set folder already exists, remove all contents from the default folder
+        fs.rmdirSync(defaultFolder, { recursive: true });
+    } else {
+        // If the change set folder doesn't exist, create the necessary folders
+        fs.mkdirSync(changeSetFolder);
+        fs.mkdirSync(mainFolder);
+    }
+
     fs.mkdirSync(defaultFolder);
+
     return defaultFolder.replace(/\\/g, '/');
 }
 
@@ -50,9 +54,8 @@ async function runForceSourceConvert(defaultFolderPath) {
     await executeCommand(convertCommand);
 }
 
-function updatePackageXml(changeSetFolder, changeSetName) {
-    const defaultFolder = path.join(changeSetFolder, 'main', 'default');
-    const packageXmlPath = path.join(defaultFolder, 'package.xml');
+function updatePackageXml(defaultFolderPath, changeSetName) {
+    const packageXmlPath = path.join(defaultFolderPath, 'package.xml');
 
     if (!fs.existsSync(packageXmlPath)) {
         throw new Error('package.xml file not found.');
@@ -80,7 +83,7 @@ async function executeCommand(command) {
 
     const result = await showCommandRunStatusModal();
 
-    if(result === YES) {
+    if (result === YES) {
         return Promise.resolve();
     } else {
         return Promise.reject(
@@ -95,7 +98,7 @@ function delay(ms) {
 
 function showCommandRunStatusModal() {
     return vscode.window.showInformationMessage(
-        'To continue, press ' + YES + ' when command is executed successfully. If not, press ' + NO,
+        'To continue, press ' + YES + ' when the command is executed successfully. If not, press ' + NO,
         YES,
         NO
     );
@@ -103,4 +106,4 @@ function showCommandRunStatusModal() {
 
 module.exports = {
     executePushToChangeSet
-}
+};
