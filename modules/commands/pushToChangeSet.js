@@ -76,6 +76,8 @@ async function runForceMdapiDeploy(defaultFolderPath) {
 async function executeCommand(command) {
     executeInTerminal(command);
 
+    await delay(2000);
+
     const result = await showCommandRunStatusModal();
 
     if(result === YES) {
