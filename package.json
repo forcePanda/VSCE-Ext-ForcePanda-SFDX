@@ -3,91 +3,82 @@
   "displayName": "ForcePanda SFDX",
   "description": "This extension contains some sfdx commands that are currently not supported in the Salesforce's official VS code extension.",
   "version": "0.0.1",
+  "publisher" : "ForcePanda",
   "engines": {
     "vscode": "^1.78.0"
   },
   "categories": [
-    "Other"
+    "Salesforce"
   ],
   "activationEvents": [
-    "onCommand:extension.createPackageWithoutNamespace",
-    "onCommand:extension.createPackageWithNamespace",
-    "onCommand:extension.createPackageVersion",
-    "onCommand:extension.releasePackageVersion",
-    "onCommand:extension.deletePackageVersion",
-    "onCommand:extension.deletePackage",
-    "onCommand:extension.getAllPackages",
-    "onCommand:extension.getAllPackageVersions",
-    "onCommand:extension.checkPackageVersionStatus",
-    "onCommand:extension.getDeploymentStatus",
-    "onCommand:extension.retrieveChangeSet",
-    "onCommand:extension.pushToChangeSet",
-    "onCommand:extension.retrieveMetadata",
-    "onCommand:extension.convertSourceToMDAPI",
-    "onCommand:extension.openDeveloperConsole"
+    
   ],
   "main": "./extension.js",
   "contributes": {
     "commands": [
       {
         "command": "extension.createPackageWithoutNamespace",
-        "title": "Create Package without Namespace"
+        "title": "ForcePanda: Create Package without Namespace"
       },
       {
         "command": "extension.createPackageWithNamespace",
-        "title": "Create Package with Namespace"
+        "title": "ForcePanda: Create Package with Namespace"
       },
       {
         "command": "extension.createPackageVersion",
-        "title": "Create Package Version"
+        "title": "ForcePanda: Create Package Version"
       },
       {
         "command": "extension.releasePackageVersion",
-        "title": "Release Package Version"
+        "title": "ForcePanda: Release Package Version"
       },
       {
         "command": "extension.deletePackageVersion",
-        "title": "Delete Package Version"
+        "title": "ForcePanda: Delete Package Version"
       },
       {
         "command": "extension.deletePackage",
-        "title": "Delete Package"
+        "title": "ForcePanda: Delete Package"
       },
       {
         "command": "extension.getAllPackages",
-        "title": "Get all Packages"
+        "title": "ForcePanda: Get all Packages"
       },
       {
         "command": "extension.getAllPackageVersions",
-        "title": "Get all Package Versions"
+        "title": "ForcePanda: Get all Package Versions"
       },
       {
         "command": "extension.checkPackageVersionStatus",
-        "title": "Check Package Version Status"
+        "title": "ForcePanda: Check Package Version Status"
       },
       {
         "command": "extension.getDeploymentStatus",
-        "title": "Get Deployment Status"
+        "title": "ForcePanda: Get Deployment Status"
       },
       {
         "command": "extension.retrieveChangeSet",
-        "title": "Retrieve Change Set"
+        "title": "ForcePanda: Retrieve Change Set"
       },
       {
         "command": "extension.pushToChangeSet",
-        "title": "Push to Change Set"
+        "title": "ForcePanda: Push to Change Set"
       },
       {
         "command": "extension.retrieveMetadata",
-        "title": "Retrieve Metadata"
+        "title": "ForcePanda: Retrieve Metadata"
       },
       {
         "command": "extension.convertSourceToMDAPI",
-        "title": "Convert Source to MDAPI"
+        "title": "ForcePanda: Convert Source to MDAPI"
       },
       {
         "command": "extension.openDeveloperConsole",
-        "title": "Open Developer Console"
+        "title": "ForcePanda: Open Developer Console"
+      },
+      {
+        "command": "extension.goToPage",
+        "title": "ForcePanda: Go To Page"
       }
     ]
   },

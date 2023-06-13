@@ -16,7 +16,8 @@ const {
 	pushToChangeSet, 
 	retrieveMetadata, 
 	convertSourceToMDAPI, 
-	openDeveloperConsole 
+	openDeveloperConsole,
+    goToPage
 } = require('./modules/commands.js');
 
 /**
@@ -38,7 +39,8 @@ function activate(context) {
         registerCommandWithErrorHandler('extension.pushToChangeSet', pushToChangeSet),
         registerCommandWithErrorHandler('extension.retrieveMetadata', retrieveMetadata),
         registerCommandWithErrorHandler('extension.convertSourceToMDAPI', convertSourceToMDAPI),
-        registerCommandWithErrorHandler('extension.openDeveloperConsole', openDeveloperConsole)
+        registerCommandWithErrorHandler('extension.openDeveloperConsole', openDeveloperConsole),
+        registerCommandWithErrorHandler('extension.goToPage', goToPage)
     );
 }
 

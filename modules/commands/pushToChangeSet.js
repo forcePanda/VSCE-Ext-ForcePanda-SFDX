@@ -3,8 +3,8 @@ const fs = require('fs');
 const path = require('path');
 const { executeInTerminal } = require('../util');
 
-const YES = 'Yes';
-const NO = 'No';
+const YES = 'Continue';
+const NO = 'Cancel';
 const DEPLOYMENT_WAIT_TIME = 20;
 
 async function executePushToChangeSet() {
@@ -75,7 +75,7 @@ async function runForceMdapiDeploy(defaultFolderPath) {
 
 async function executeCommand(command) {
     executeInTerminal(command);
-    
+
     const result = await showCommandRunStatusModal();
 
     if(result === YES) {
@@ -87,10 +87,13 @@ async function executeCommand(command) {
     }
 }
 
+function delay(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 function showCommandRunStatusModal() {
     return vscode.window.showInformationMessage(
-        'Did the command run successfully?',
-        { modal: true },
+        'To continue, press ' + YES + ' when command is executed successfully. If not, press ' + NO,
         YES,
         NO
     );

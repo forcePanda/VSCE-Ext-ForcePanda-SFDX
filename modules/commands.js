@@ -11,6 +11,7 @@ const { executeCheckPackageVersionStatus } = require('./commands/checkPackageVer
 const { executePushToChangeSet } = require('./commands/pushToChangeSet.js');
 const { executeDeletePackageVersion } = require('./commands/deletePackageVersion.js');
 const { executeOpenDeveloperConsole } = require('./commands/openDeveloperConsole.js');
+const { executeGoToPage } = require('./commands/goToPage.js');
 
 // Create Package without Namespace
 function createPackageWithoutNamespace() {
@@ -81,6 +82,11 @@ function pushToChangeSet() {
     executePushToChangeSet();
 }
 
+function goToPage() {
+    executeGoToPage();
+}
+
+
 module.exports = {
     createPackageWithoutNamespace,
     createPackageWithNamespace,
@@ -96,5 +102,6 @@ module.exports = {
     pushToChangeSet,
     retrieveMetadata,
     convertSourceToMDAPI,
-    openDeveloperConsole
+    openDeveloperConsole,
+    goToPage
 };

@@ -1,9 +1,9 @@
 const util = require('../util');
-const { urlMap } = require('../urls/lex/urls_lex');
+const { PAGE_URLS } = require('../urls/urlDictionary') 
 
 function executeOpenDeveloperConsole() {
     util.executeInTerminal(
-        'sfdx force:org:open -p ' + urlMap.DEV_CONSOLE
+        'sfdx force:org:open -p ' + PAGE_URLS.DEV_CONSOLE.url
     );
 }
 
