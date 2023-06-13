@@ -1,7 +1,7 @@
 const vscode = require('vscode');
 const fs = require('fs');
 const path = require('path');
-const { TERMINAL } = require('../util');
+const { TERMINAL_NAME } = require('../util');
 
 async function executePushToChangeSet() {
     const changeSetName = await requestChangeSetName();
@@ -70,7 +70,7 @@ async function runForceMdapiDeploy(defaultFolderPath) {
 }
 
 async function executeCommand(command) {
-    const terminal = vscode.window.createTerminal(TERMINAL);
+    const terminal = vscode.window.createTerminal(TERMINAL_NAME);
     terminal.show();
     terminal.sendText(command);
     await new Promise(resolve => setTimeout(resolve, 2000));
