@@ -4,6 +4,7 @@
   "description": "This extension contains some sfdx commands that are currently not supported in the Salesforce's official VS code extension.",
   "version": "0.0.1",
   "publisher" : "ForcePanda",
+  "repository" : "https://github.com/forcePanda/VSCE-Ext-ForcePanda-SFDX",
   "engines": {
     "vscode": "^1.78.0"
   },
