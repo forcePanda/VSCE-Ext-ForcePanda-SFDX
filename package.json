@@ -3,19 +3,84 @@
   "displayName": "ForcePanda SFDX",
   "description": "This extension contains some sfdx commands that are currently not supported in the Salesforce's official VS code extension.",
   "version": "0.0.1",
+  "publisher" : "ForcePanda",
   "engines": {
-    "vscode": "^1.79.0"
+    "vscode": "^1.78.0"
   },
   "categories": [
-    "Other"
+    "Salesforce"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    
+  ],
   "main": "./extension.js",
   "contributes": {
-    "commands": [{
-      "command": "ForcePanda-SFDX.helloWorld",
-      "title": "Hello World"
-    }]
+    "commands": [
+      {
+        "command": "extension.createPackageWithoutNamespace",
+        "title": "FPDX: Create Package without Namespace"
+      },
+      {
+        "command": "extension.createPackageWithNamespace",
+        "title": "FPDX: Create Package with Namespace"
+      },
+      {
+        "command": "extension.createPackageVersion",
+        "title": "FPDX: Create Package Version"
+      },
+      {
+        "command": "extension.releasePackageVersion",
+        "title": "FPDX: Release Package Version"
+      },
+      {
+        "command": "extension.deletePackageVersion",
+        "title": "FPDX: Delete Package Version"
+      },
+      {
+        "command": "extension.deletePackage",
+        "title": "FPDX: Delete Package"
+      },
+      {
+        "command": "extension.getAllPackages",
+        "title": "FPDX: Get all Packages"
+      },
+      {
+        "command": "extension.getAllPackageVersions",
+        "title": "FPDX: Get all Package Versions"
+      },
+      {
+        "command": "extension.checkPackageVersionStatus",
+        "title": "FPDX: Check Package Version Status"
+      },
+      {
+        "command": "extension.getDeploymentStatus",
+        "title": "FPDX: Get Deployment Status"
+      },
+      {
+        "command": "extension.retrieveChangeSet",
+        "title": "FPDX: Retrieve Change Set"
+      },
+      {
+        "command": "extension.pushToChangeSet",
+        "title": "FPDX: Push to Change Set"
+      },
+      {
+        "command": "extension.convertSourceToMDAPI",
+        "title": "FPDX: Convert Source to MDAPI"
+      },
+      {
+        "command": "extension.openDeveloperConsole",
+        "title": "FPDX: Open Developer Console"
+      },
+      {
+        "command": "extension.goToPage",
+        "title": "FPDX: Go To Page"
+      },
+      {
+        "command": "extension.pushToPackage",
+        "title": "FPDX: Push Metadata to Package"
+      }
+    ]
   },
   "scripts": {
     "lint": "eslint .",
@@ -23,7 +88,7 @@
     "test": "node ./test/runTest.js"
   },
   "devDependencies": {
-    "@types/vscode": "^1.79.0",
+    "@types/vscode": "^1.78.0",
     "@types/glob": "^8.1.0",
     "@types/mocha": "^10.0.1",
     "@types/node": "16.x",
