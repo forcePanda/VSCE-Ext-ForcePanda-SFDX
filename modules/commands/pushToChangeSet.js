@@ -14,7 +14,7 @@ async function executePushToChangeSet() {
         return;
     }
 
-    const defaultFolderPath = createChangeSetFolder(changeSetName);
+    const defaultFolderPath = await createChangeSetFolder(changeSetName);
 
     await runForceSourceConvert(defaultFolderPath);
 
@@ -32,7 +32,7 @@ async function requestChangeSetName() {
     });
 }
 
-function createChangeSetFolder(changeSetName) {
+async function createChangeSetFolder(changeSetName) {
     const rootPath = vscode.workspace.workspaceFolders[0].uri.fsPath;
     const changeSetFolder = path.join(rootPath, changeSetName);
     const mainFolder = path.join(changeSetFolder, 'main');
@@ -40,16 +40,18 @@ function createChangeSetFolder(changeSetName) {
 
     if (fs.existsSync(changeSetFolder)) {
         // If the change set folder already exists, remove all contents from the default folder
-        fs.rm(defaultFolder, { recursive: true });
-    } else {
-        // If the change set folder doesn't exist, create the necessary folders
-        fs.mkdirSync(changeSetFolder);
-        fs.mkdirSync(mainFolder);
+        removeAllFiles(changeSetFolder);
     }
 
+    fs.mkdirSync(changeSetFolder);
+    fs.mkdirSync(mainFolder);
     fs.mkdirSync(defaultFolder);
 
     return defaultFolder.replace(/\\/g, '/');
+}
+
+function removeAllFiles(path) {
+    fs.rmSync(path, { recursive: true });
 }
 
 async function runForceSourceConvert(defaultFolderPath) {
