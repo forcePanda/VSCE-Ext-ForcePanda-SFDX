@@ -14,6 +14,7 @@ const { executeGoToPage } = require('./commands/goToPage.js');
 const { executeGetDeploymentStatus } = require('./commands/getDeploymentStatus.js')
 const { executeRetrieveChangeSet } = require('./commands/retrieveChangeSet.js')
 const { executeConvertSourceToMDAPI } = require('./commands/convertSourceToMDAPI.js')
+const { executePushToPackage } = require('./commands/pushToPackage.js')
 
 // Create Package without Namespace
 function createPackageWithoutNamespace() {
@@ -71,7 +72,9 @@ function retrieveChangeSet() {
 }
 
 // Push to Change Set
-function pushToPackage() {}
+function pushToPackage() {
+    executePushToPackage();
+}
 
 // Convert Source to MDAPI
 function convertSourceToMDAPI() {
@@ -107,5 +110,6 @@ module.exports = {
     pushToChangeSet,
     convertSourceToMDAPI,
     openDeveloperConsole,
-    goToPage
+    goToPage,
+    pushToPackage
 };

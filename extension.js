@@ -16,7 +16,8 @@ const {
 	pushToChangeSet, 
 	convertSourceToMDAPI, 
 	openDeveloperConsole,
-    goToPage
+    goToPage,
+    pushToPackage
 } = require('./modules/commands.js');
 
 /**
@@ -38,7 +39,8 @@ function activate(context) {
         registerCommandWithErrorHandler('extension.pushToChangeSet', pushToChangeSet),
         registerCommandWithErrorHandler('extension.convertSourceToMDAPI', convertSourceToMDAPI),
         registerCommandWithErrorHandler('extension.openDeveloperConsole', openDeveloperConsole),
-        registerCommandWithErrorHandler('extension.goToPage', goToPage)
+        registerCommandWithErrorHandler('extension.goToPage', goToPage),
+        registerCommandWithErrorHandler('extension.pushToPackage', pushToPackage)
     );
 
     console.log('ForcePanda-SFDX extension activated');

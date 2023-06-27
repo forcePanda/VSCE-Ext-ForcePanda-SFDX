@@ -75,6 +75,10 @@
       {
         "command": "extension.goToPage",
         "title": "FPDX: Go To Page"
+      },
+      {
+        "command": "extension.pushToPackage",
+        "title": "FPDX: Push Metadata to Package"
       }
     ]
   },
