@@ -18,67 +18,67 @@
     "commands": [
       {
         "command": "extension.createPackageWithoutNamespace",
-        "title": "ForcePanda: Create Package without Namespace"
+        "title": "FPDX: Create Package without Namespace"
       },
       {
         "command": "extension.createPackageWithNamespace",
-        "title": "ForcePanda: Create Package with Namespace"
+        "title": "FPDX: Create Package with Namespace"
       },
       {
         "command": "extension.createPackageVersion",
-        "title": "ForcePanda: Create Package Version"
+        "title": "FPDX: Create Package Version"
       },
       {
         "command": "extension.releasePackageVersion",
-        "title": "ForcePanda: Release Package Version"
+        "title": "FPDX: Release Package Version"
       },
       {
         "command": "extension.deletePackageVersion",
-        "title": "ForcePanda: Delete Package Version"
+        "title": "FPDX: Delete Package Version"
       },
       {
         "command": "extension.deletePackage",
-        "title": "ForcePanda: Delete Package"
+        "title": "FPDX: Delete Package"
       },
       {
         "command": "extension.getAllPackages",
-        "title": "ForcePanda: Get all Packages"
+        "title": "FPDX: Get all Packages"
       },
       {
         "command": "extension.getAllPackageVersions",
-        "title": "ForcePanda: Get all Package Versions"
+        "title": "FPDX: Get all Package Versions"
       },
       {
         "command": "extension.checkPackageVersionStatus",
-        "title": "ForcePanda: Check Package Version Status"
+        "title": "FPDX: Check Package Version Status"
       },
       {
         "command": "extension.getDeploymentStatus",
-        "title": "ForcePanda: Get Deployment Status"
+        "title": "FPDX: Get Deployment Status"
       },
       {
         "command": "extension.retrieveChangeSet",
-        "title": "ForcePanda: Retrieve Change Set"
+        "title": "FPDX: Retrieve Change Set"
       },
       {
         "command": "extension.pushToChangeSet",
-        "title": "ForcePanda: Push to Change Set"
+        "title": "FPDX: Push to Change Set"
       },
       {
         "command": "extension.retrieveMetadata",
-        "title": "ForcePanda: Retrieve Metadata"
+        "title": "FPDX: Retrieve Metadata"
       },
       {
         "command": "extension.convertSourceToMDAPI",
-        "title": "ForcePanda: Convert Source to MDAPI"
+        "title": "FPDX: Convert Source to MDAPI"
       },
       {
         "command": "extension.openDeveloperConsole",
-        "title": "ForcePanda: Open Developer Console"
+        "title": "FPDX: Open Developer Console"
       },
       {
         "command": "extension.goToPage",
-        "title": "ForcePanda: Go To Page"
+        "title": "FPDX: Go To Page"
       }
     ]
   },

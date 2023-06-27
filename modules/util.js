@@ -19,7 +19,7 @@ function registerCommandWithErrorHandler(commandId, handlerMethod) {
 }
 
 function handleError(err) {
-    vscode.window.showErrorMessage('Something went wrong! ' + err);
+    vscode.window.showErrorMessage('Something went wrong! ' + err); 
 }
 
 function getTerminal() {
