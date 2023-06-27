@@ -1,3 +1,3 @@
 # ForcePanda-SFDX README
 
-Work in progress!
+An extension that contains some Salesforce related packaging commands along with some additional utitlity commands.
