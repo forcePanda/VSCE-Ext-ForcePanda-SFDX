@@ -2,8 +2,6 @@
 
 All notable changes to the "ForcePanda-SFDX" extension will be documented in this file.
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+## Release Timeline
 
-## [Unreleased]
-
-- Initial release
+- Initial release - 27 June 2026 - v1.0.0
