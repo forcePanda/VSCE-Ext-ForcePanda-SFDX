@@ -14,7 +14,6 @@ const {
 	getDeploymentStatus, 
 	retrieveChangeSet, 
 	pushToChangeSet, 
-	retrieveMetadata, 
 	convertSourceToMDAPI, 
 	openDeveloperConsole,
     goToPage
@@ -37,7 +36,6 @@ function activate(context) {
         registerCommandWithErrorHandler('extension.getDeploymentStatus', getDeploymentStatus),
         registerCommandWithErrorHandler('extension.retrieveChangeSet', retrieveChangeSet),
         registerCommandWithErrorHandler('extension.pushToChangeSet', pushToChangeSet),
-        registerCommandWithErrorHandler('extension.retrieveMetadata', retrieveMetadata),
         registerCommandWithErrorHandler('extension.convertSourceToMDAPI', convertSourceToMDAPI),
         registerCommandWithErrorHandler('extension.openDeveloperConsole', openDeveloperConsole),
         registerCommandWithErrorHandler('extension.goToPage', goToPage)

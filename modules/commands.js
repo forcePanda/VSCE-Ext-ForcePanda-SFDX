@@ -12,6 +12,8 @@ const { executeDeletePackageVersion } = require('./commands/deletePackageVersion
 const { executeOpenDeveloperConsole } = require('./commands/openDeveloperConsole.js');
 const { executeGoToPage } = require('./commands/goToPage.js');
 const { executeGetDeploymentStatus } = require('./commands/getDeploymentStatus.js')
+const { executeRetrieveChangeSet } = require('./commands/retrieveChangeSet.js')
+const { executeConvertSourceToMDAPI } = require('./commands/convertSourceToMDAPI.js')
 
 // Create Package without Namespace
 function createPackageWithoutNamespace() {
@@ -64,16 +66,17 @@ function getDeploymentStatus() {
 }
 
 // Retrieve Change Set
-function retrieveChangeSet() {}
+function retrieveChangeSet() {
+    executeRetrieveChangeSet();
+}
 
 // Push to Change Set
 function pushToPackage() {}
 
-// Retrieve Metadata
-function retrieveMetadata() {}
-
 // Convert Source to MDAPI
-function convertSourceToMDAPI() {}
+function convertSourceToMDAPI() {
+    executeConvertSourceToMDAPI();
+}
 
 // Open Developer Console
 function openDeveloperConsole() {
@@ -102,7 +105,6 @@ module.exports = {
     getDeploymentStatus,
     retrieveChangeSet,
     pushToChangeSet,
-    retrieveMetadata,
     convertSourceToMDAPI,
     openDeveloperConsole,
     goToPage

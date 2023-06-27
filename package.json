@@ -65,10 +65,6 @@
         "title": "FPDX: Push to Change Set"
       },
       {
-        "command": "extension.retrieveMetadata",
-        "title": "FPDX: Retrieve Metadata"
-      },
-      {
         "command": "extension.convertSourceToMDAPI",
         "title": "FPDX: Convert Source to MDAPI"
       },
