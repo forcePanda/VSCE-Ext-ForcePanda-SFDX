@@ -1,5 +1,4 @@
-// commands.js
-//const vscode = require('vscode');
+
 const { executeCreatePackageWithoutNamespace } = require('./commands/createPackageWithoutNamespace.js');
 const { executeCreatePackageWithNamespace } = require('./commands/createPackageWithNamespace.js');
 const { executeCreatePackageVersion } = require('./commands/createPackageVersion.js');
@@ -12,6 +11,7 @@ const { executePushToChangeSet } = require('./commands/pushToChangeSet.js');
 const { executeDeletePackageVersion } = require('./commands/deletePackageVersion.js');
 const { executeOpenDeveloperConsole } = require('./commands/openDeveloperConsole.js');
 const { executeGoToPage } = require('./commands/goToPage.js');
+const { executeGetDeploymentStatus } = require('./commands/getDeploymentStatus.js')
 
 // Create Package without Namespace
 function createPackageWithoutNamespace() {
@@ -59,7 +59,9 @@ function checkPackageVersionStatus() {
 }
 
 // Get Deployment Status
-function getDeploymentStatus() {}
+function getDeploymentStatus() {
+    executeGetDeploymentStatus();
+}
 
 // Retrieve Change Set
 function retrieveChangeSet() {}
