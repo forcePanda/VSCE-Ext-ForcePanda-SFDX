@@ -7,9 +7,13 @@ async function executePushToPackage() {
         placeHolder: 'ex. force-app/main/default'
     });
 
+    if(!mdtDir) {
+        return;
+    } 
+
     util.executeInTerminal(
         `sfdx force:mdapi:deploy` +
-        ` -d "${mdtDir}"`
+        ` --wait 20`
     );
 }
 
