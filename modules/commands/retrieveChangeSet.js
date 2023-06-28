@@ -7,6 +7,10 @@ async function executeRetrieveChangeSet() {
         placeHolder: 'Change Set name'
     });
 
+    if(!packageName) {
+        return;
+    }
+
     util.executeInTerminal(
         `sfdx force:source:retrieve` +
         ` -n"${packageName}"`
