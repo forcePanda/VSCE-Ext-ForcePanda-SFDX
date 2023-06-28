@@ -30,16 +30,16 @@ async function executeCreatePackageWithNamespace() {
         value: CONSTANTS.DEFAULT_FOLDER_PATH
     });
 
+    if(!packageName || !packageType || !path || !packageNameSpace)  {
+        return;
+    }
+
     const command = `sfdx force:package:create` +
         ` --name "${packageName}"` +
         ` --description "${packageDescription}"` +
         ` --packagetype "${packageType}"` +
         ` --path "${path}"` +
         ` --namespace "${packageNameSpace}"`;
-    
-    if(!packageName || !packageType || !path || !packageNameSpace)  {
-        return;
-    }
 
     util.executeInTerminal(command);
 }
