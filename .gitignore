@@ -1,6 +1,8 @@
 node_modules
 .vscode-test/
-*.vsix
+
+
+ForcePanda-SFDX-0.0.1.vsix
 
 .vscode
 notes.txt
