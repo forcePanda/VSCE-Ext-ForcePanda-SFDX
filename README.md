@@ -55,5 +55,3 @@ All commands start with 'FPDX'. Below is a list of available commands provided b
 
 ### FPDX: Push Metadata to Package
 - **Description:** Pushes metadata to a package.
-
-Feel free to update this README file with any additional information or instructions as needed.
