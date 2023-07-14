@@ -22,6 +22,10 @@ async function executePushToChangeSet() {
 
     await runForceMdapiDeploy(defaultFolderPath);
 
+    removeAllFiles(
+        getChangeSetFolderPath(changeSetName)
+    );
+
     handleSuccess();
 }
 
@@ -33,8 +37,7 @@ async function requestChangeSetName() {
 }
 
 async function createChangeSetFolder(changeSetName) {
-    const rootPath = vscode.workspace.workspaceFolders[0].uri.fsPath;
-    const changeSetFolder = path.join(rootPath, changeSetName);
+    const changeSetFolder = getChangeSetFolderPath(changeSetName);
     const mainFolder = path.join(changeSetFolder, 'main');
     const defaultFolder = path.join(mainFolder, 'default');
 
@@ -52,6 +55,13 @@ async function createChangeSetFolder(changeSetName) {
 
 function removeAllFiles(path) {
     fs.rmSync(path, { recursive: true });
+}
+
+function getChangeSetFolderPath(changeSetName) {
+    return path.join(
+        vscode.workspace.workspaceFolders[0].uri.fsPath, 
+        changeSetName
+    );
 }
 
 async function runForceSourceConvert(defaultFolderPath) {
