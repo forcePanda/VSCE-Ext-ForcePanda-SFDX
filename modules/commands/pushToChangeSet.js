@@ -2,13 +2,21 @@ const vscode = require('vscode');
 const fs = require('fs');
 const path = require('path');
 const { executeInTerminal } = require('../util');
+const { CONSTANTS } = require('../constants');
 
 const YES = 'Continue';
 const NO = 'Cancel';
 const DEPLOYMENT_WAIT_TIME = 20;
 
+const METADATA_SOURCES = [
+    'Use Manifest file',
+    'Specify metadata directory'
+];
+
 async function executePushToChangeSet() {
     const changeSetName = await requestChangeSetName();
+
+    const mdtSource = getMdtSource();
 
     if (!changeSetName) {
         return;
@@ -16,7 +24,7 @@ async function executePushToChangeSet() {
 
     const defaultFolderPath = await createChangeSetFolder(changeSetName);
 
-    await runForceSourceConvert(defaultFolderPath);
+    await runForceSourceConvert(defaultFolderPath, mdtSource);
 
     updatePackageXml(defaultFolderPath, changeSetName);
 
@@ -27,6 +35,24 @@ async function executePushToChangeSet() {
     );
 
     handleSuccess();
+}
+
+async function getMdtSource() {
+    const mdtSource = await vscode.window.showQuickPick( METADATA_SOURCES, {
+        placeHolder: 'Select Metadata Source'
+    });
+
+    const isManifest = mdtSource === METADATA_SOURCES[0];
+
+    const path = await vscode.window.showInputBox({
+        prompt: 'Specify ' + isManifest ?  'Manifest file' : 'Metadata source' + ' directory',
+        value: isManifest ? CONSTANTS.DEFAULT_MANIFEST : CONSTANTS.DEFAULT_FOLDER_PATH
+    });
+
+    return {
+        isManifest: isManifest,
+        path: path
+    }
 }
 
 async function requestChangeSetName() {
@@ -64,10 +90,12 @@ function getChangeSetFolderPath(changeSetName) {
     );
 }
 
-async function runForceSourceConvert(defaultFolderPath) {
+async function runForceSourceConvert(defaultFolderPath, mdtSource) {
     const convertCommand = `sfdx force:source:convert` +
-        // ` -r "${vscode.workspace.rootPath}"` +
-        ` -d "${defaultFolderPath}"`;
+        mdtSource.isManifest 
+            ? ' --manifest ' + mdtSource.path
+            : ' --sourcepath ' + mdtSource.path
+        + ` -d "${defaultFolderPath}"`;
     await executeCommand(convertCommand);
 }
 
