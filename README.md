@@ -3,7 +3,7 @@
 An extension that contains some Salesforce related packaging commands along with some additional utitlity commands.
 
 ## Installation
-Download the repo and use the ForcePanda-SFDX.vsix file to install the extension in your VS Code.
+Download the repo and use the ForcePanda-SFDX-<version>.vsix file to install the extension in your VS Code.
 Note: Previous versions of the vsix file can be found in the 'Previous Versions' folder.
 
 ## Release Updates
@@ -11,6 +11,7 @@ Note: Previous versions of the vsix file can be found in the 'Previous Versions'
 |-|-|
 | 1.0.0 | Base Version |
 | 1.1.0 | FPDX: Push to Change Set - removes change set files after push.|
+| 1.2.0 | FPDX: Push to Change Set - added the option to use manifest file.|
 
 ## Available Commands
 All commands start with 'FPDX'. Below is a list of available commands provided by this extension:
