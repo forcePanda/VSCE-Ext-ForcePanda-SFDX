@@ -16,9 +16,9 @@ const METADATA_SOURCES = [
 async function executePushToChangeSet() {
     const changeSetName = await requestChangeSetName();
 
-    const mdtSource = getMdtSource();
+    const mdtSource = await getMdtSource();
 
-    if (!changeSetName) {
+    if (!changeSetName || !mdtSource.path) {
         return;
     }
 
@@ -45,7 +45,7 @@ async function getMdtSource() {
     const isManifest = mdtSource === METADATA_SOURCES[0];
 
     const path = await vscode.window.showInputBox({
-        prompt: 'Specify ' + isManifest ?  'Manifest file' : 'Metadata source' + ' directory',
+        prompt: 'Specify ' + (isManifest ?  'Manifest file' : 'Metadata source') + ' directory',
         value: isManifest ? CONSTANTS.DEFAULT_MANIFEST : CONSTANTS.DEFAULT_FOLDER_PATH
     });
 
@@ -92,9 +92,9 @@ function getChangeSetFolderPath(changeSetName) {
 
 async function runForceSourceConvert(defaultFolderPath, mdtSource) {
     const convertCommand = `sfdx force:source:convert` +
-        mdtSource.isManifest 
+        (mdtSource.isManifest 
             ? ' --manifest ' + mdtSource.path
-            : ' --sourcepath ' + mdtSource.path
+            : ' --sourcepath ' + mdtSource.path)
         + ` -d "${defaultFolderPath}"`;
     await executeCommand(convertCommand);
 }
