@@ -12,7 +12,7 @@ async function executeCheckPackageVersionStatus() {
         return
     }
 
-    const command = `sfdx force:package:version:create:report` +
+    const command = `sf package version create report` +
         ` -i "${packageRequestId}"`;
 
     util.executeCheckPackageVersionStatus(command);

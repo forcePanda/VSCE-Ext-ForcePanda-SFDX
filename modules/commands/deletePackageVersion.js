@@ -12,7 +12,7 @@ async function executeDeletePackageVersion() {
         return;
     }
 
-    const command = `sfdx force:package:version:delete` +
+    const command = `sf package version delete` +
         ` --package "${packageVersionId}"`;
 
     util.executeInTerminal(command);

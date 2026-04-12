@@ -12,11 +12,11 @@ async function executeCreatePackageVersion() {
         return
     }
 
-    const command = `sfdx force:package:version:create` +
+    const command = `sf package version create` +
         ` --package "${packageId}"` +
         ` --wait 20` +
-        ` --installationkeybypass` +
-        ` --codecoverage`;
+        ` --installation-key-bypass` +
+        ` --code-coverage`;
 
     util.executeInTerminal(command);
 }

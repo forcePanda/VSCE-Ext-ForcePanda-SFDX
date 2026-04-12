@@ -12,7 +12,7 @@ async function executeGetAllPackageVersions() {
         return;
     }
 
-    const command = `sfdx force:package:version:list` +
+    const command = `sf package version list` +
         ` --packages "${packageId}"`;
 
     util.executeInTerminal(command);

@@ -14,7 +14,7 @@ async function executeGoToPage() {
         return;
     }
 
-    const command = 'sfdx force:org:open -p ' + pageUrl;
+    const command = 'sf org open --path ' + pageUrl;
 
     executeInTerminal(command);
 }

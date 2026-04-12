@@ -12,7 +12,7 @@ async function executePushToPackage() {
     } 
 
     util.executeInTerminal(
-        `sfdx force:mdapi:deploy` +
+        `sf project deploy start` +
         ` --wait 20`
     );
 }
