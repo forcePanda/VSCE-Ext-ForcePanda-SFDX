@@ -91,11 +91,11 @@ function getChangeSetFolderPath(changeSetName) {
 }
 
 async function runForceSourceConvert(defaultFolderPath, mdtSource) {
-    const convertCommand = `sfdx force:source:convert` +
+    const convertCommand = `sf source convert` +
         (mdtSource.isManifest 
             ? ' --manifest ' + mdtSource.path
             : ' --sourcepath ' + mdtSource.path)
-        + ` -d "${defaultFolderPath}"`;
+        + ` --output-dir "${defaultFolderPath}"`;
     await executeCommand(convertCommand);
 }
 
@@ -115,8 +115,8 @@ function updatePackageXml(defaultFolderPath, changeSetName) {
 }
 
 async function runForceMdapiDeploy(defaultFolderPath) {
-    const deployCommand = `sfdx force:mdapi:deploy` +
-        ` --deploydir "${defaultFolderPath}"` +
+    const deployCommand = `sf project deploy start` +
+        ` --metadata-dir "${defaultFolderPath}"` +
         ` --wait ${DEPLOYMENT_WAIT_TIME}`;
     await executeCommand(deployCommand);
 }

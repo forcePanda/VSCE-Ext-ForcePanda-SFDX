@@ -1,17 +1,18 @@
 # ForcePanda-SFDX README
 
-An extension that contains some Salesforce related packaging commands along with some additional utitlity commands.
+An extension that contains Salesforce CLI (sf) commands for enhanced packaging and metadata management capabilities. This extension provides commands that streamline common Salesforce DX workflows.
 
 ## Installation
 Download the repo and use the ForcePanda-SFDX-<version>.vsix file to install the extension in your VS Code.
 Note: Previous versions of the vsix file can be found in the 'Previous Versions' folder.
 
 ## Release Updates
-| Version | Fixes
+| Version | Changes
 |-|-|
-| 1.0.0 | Base Version |
-| 1.1.0 | FPDX: Push to Change Set - removes change set files after push.|
-| 1.2.0 | FPDX: Push to Change Set - added the option to use manifest file.|
+| 2.0.0 | **Major Update:** Migrated all commands from SFDX CLI (deprecated) to SF CLI.|
+| 1.2.0 | FPDX: Push to Change Set - added the option to use manifest file. |
+| 1.1.0 | FPDX: Push to Change Set - removes change set files after push. |
+| 1.0.0 | Base Version ||
 
 ## Available Commands
 All commands start with 'FPDX'. Below is a list of available commands provided by this extension:

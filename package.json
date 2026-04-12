@@ -1,8 +1,8 @@
 {
   "name": "ForcePanda-SFDX",
   "displayName": "ForcePanda SFDX",
-  "description": "This extension contains some sfdx commands that are currently not supported in the Salesforce's official VS code extension.",
-  "version": "1.2.0",
+  "description": "This extension contains some Salesforce CLI (sf) commands that provide enhanced packaging and metadata management capabilities.",
+  "version": "2.0.0",
   "publisher" : "ForcePanda",
   "repository" : "https://github.com/forcePanda/VSCE-Ext-ForcePanda-SFDX",
   "engines": {

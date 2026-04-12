@@ -29,11 +29,11 @@ async function executeCreatePackageWithoutNamespace() {
     }
 
     util.executeInTerminal(
-        `sfdx force:package:create` +
+        `sf package create` +
         ` --name "${packageName}"` +
         ` --description "${packageDescription}"` +
-        ` --packagetype "${packageType}"` +
-        ` --nonamespace` +
+        ` --package-type "${packageType}"` +
+        ` --no-namespace` +
         ` --path "${path}"`
     );
 }

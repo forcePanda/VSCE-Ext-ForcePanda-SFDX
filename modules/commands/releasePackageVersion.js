@@ -11,7 +11,7 @@ async function executeReleasePackageVersion() {
         return;
     }
 
-    const command = `sfdx force:package:version:promote` +
+    const command = `sf package version promote` +
         ` --package "${packageVersionId}"`;
 
     util.executeInTerminal(command);

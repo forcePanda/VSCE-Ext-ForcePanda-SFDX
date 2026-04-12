@@ -34,10 +34,10 @@ async function executeCreatePackageWithNamespace() {
         return;
     }
 
-    const command = `sfdx force:package:create` +
+    const command = `sf package create` +
         ` --name "${packageName}"` +
         ` --description "${packageDescription}"` +
-        ` --packagetype "${packageType}"` +
+        ` --package-type "${packageType}"` +
         ` --path "${path}"` +
         ` --namespace "${packageNameSpace}"`;
 

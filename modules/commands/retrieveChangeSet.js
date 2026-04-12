@@ -12,8 +12,8 @@ async function executeRetrieveChangeSet() {
     }
 
     util.executeInTerminal(
-        `sfdx force:source:retrieve` +
-        ` -n"${packageName}"`
+        `sf source retrieve` +
+        ` -n "${packageName}"`
     );
 }
 

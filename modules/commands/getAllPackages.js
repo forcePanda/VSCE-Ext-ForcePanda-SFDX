@@ -2,7 +2,7 @@ const util = require('../util');
 
 async function executeGetAllPackages() {
 
-    const command = `sfdx force:package:list`;
+    const command = `sf package list`;
     util.executeInTerminal(command);
 }
 
